@@ -1,0 +1,7 @@
+*.csproj
+*.json
+*.catalog
+Varisoft_Test/Library/
+Varisoft_Test/Temp/
+*.log
+Varisoft_Test/Assets/Adaptive Performance/
