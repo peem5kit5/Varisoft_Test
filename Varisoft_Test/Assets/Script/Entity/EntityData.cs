@@ -7,11 +7,14 @@ public class EntityData : ScriptableObject
 {
     public string Name;
     public int MaxHP;
+    public Color EntityColor;
 
     public float Speed;
     public int Damage;
     public float Range;
 
-    public Animator Anim;
-    public Sprite Sprite;
+    public GameObject DeathParticle;
+
+    [Header("If it ranged or have Projecttile.")]
+    public GameObject Projectile;
 }

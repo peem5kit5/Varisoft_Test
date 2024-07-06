@@ -14,13 +14,13 @@ public class BasicCameraFollow : MonoBehaviour
 		startingPosition = transform.position;
 	}
 
-	void Update () 
+	void LateUpdate () 
 	{
 		if(followTarget != null)
 		{
 			targetPos = new Vector3(followTarget.position.x, followTarget.position.y, transform.position.z);
-			Vector3 velocity = (targetPos - transform.position) * moveSpeed;
-			transform.position = Vector3.SmoothDamp (transform.position, targetPos, ref velocity, 1.0f, Time.deltaTime);
+			Vector3 _velocity = (targetPos - transform.position) * moveSpeed;
+			transform.position = Vector3.SmoothDamp (transform.position, targetPos, ref _velocity, 1.0f, Time.deltaTime);
 		}
 	}
 }

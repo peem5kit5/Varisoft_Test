@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -40,4 +42,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Terrain
+    uniqueID: 6792335
+    locked: 0
+  - name: Entity
+    uniqueID: 4102154701
+    locked: 0
+  - name: Bullet
+    uniqueID: 1887135949
+    locked: 0
+  - name: Player
+    uniqueID: 2031881669
+    locked: 0
+  - name: Wall
+    uniqueID: 666959965
     locked: 0

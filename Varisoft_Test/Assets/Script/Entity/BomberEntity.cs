@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BomberEntity : MonoBehaviour
+public class BomberEntity : EntityBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Behaviour()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+       
     }
 }

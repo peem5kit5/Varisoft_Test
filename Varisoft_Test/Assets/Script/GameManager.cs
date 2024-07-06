@@ -4,12 +4,11 @@ using UnityEngine;
 
 [RequireComponent(typeof (WorldGenerator))]
 [RequireComponent(typeof (FramerateOptimizer))]
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     [Header("References")]
     [SerializeField] private GameObject entityBaseObject;
     [SerializeField] private GameObject tileBaseObject;
-    [SerializeField] private GameObject particleObject;
 
     [Header("Dependencies")]
     [SerializeField] private WorldGenerator worldGen;
@@ -17,9 +16,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private Health health;
 
-    private void Awake()
+    public override void Awake()
     {
+        framerateOptimizer.Init();
+
         worldGen = GetComponent<WorldGenerator>();
+        worldGen.Init();
 
         InitializeWorldGenerator();
         InitializePlayer();
@@ -33,17 +35,17 @@ public class GameManager : MonoBehaviour
     private void InitializeWorldGenerator()
     {
         worldGen.GenerateTile();
+        worldGen.GenerateObstacle();
         worldGen.GenerateEntity();
     }
 
     private void InitializePlayer()
     {
-        framerateOptimizer.Init();
         player.Init();
     }
 
-    public GameObject GetParticle()
+    public void GameOver()
     {
-        return particleObject;
+
     }
 }
