@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -26,6 +25,9 @@ public class WorldGenerator : MonoBehaviour
     private Dictionary<string, EntityData> entitiesDict = new Dictionary<string, EntityData>();
     private List<Vector3Int> tilePositions = new List<Vector3Int>();
     private List<Vector3Int> passableTile = new List<Vector3Int>();
+
+    public List<Vector3Int> SpawnablePlayerTile => passableTile;
+    public Tilemap TileMap => tileMap;
 
     public void Init()
     {
@@ -78,6 +80,16 @@ public class WorldGenerator : MonoBehaviour
         }
         else
             GenerateObstacle();
+
+        CenterAndResizeAstarGrid();
+    }
+
+    private void CenterAndResizeAstarGrid()
+    {
+        Vector3 _centerPosition = new Vector3(0, mapSizeY / 4, 0);
+
+        AstarPath.active.data.gridGraph.center = _centerPosition;
+        AstarPath.active.Scan();
     }
 
     public void GenerateEntity()
@@ -106,6 +118,8 @@ public class WorldGenerator : MonoBehaviour
             int _randomPosition = Random.Range(0, passableTile.Count);
             Vector3 _worldPos = tileMap.CellToWorld(passableTile[_randomPosition]);
             _entityBase.transform.position = _worldPos;
+
+            passableTile.Remove(passableTile[_randomPosition]);
         }
     }
 
@@ -148,7 +162,6 @@ public class WorldGenerator : MonoBehaviour
             }
         }
 
-        Debug.Log("False");
         return false;
     }
 }

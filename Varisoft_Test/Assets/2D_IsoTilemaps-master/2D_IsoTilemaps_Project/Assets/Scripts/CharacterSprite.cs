@@ -24,6 +24,21 @@ public class CharacterSprite : MonoBehaviour
         animator.Play(_directionArray[lastDirection]);
     }
 
+    public void SetDirectionWithAstar(Vector2 _direction, bool _canWalk)
+    {
+        string[] _directionArray = null;
+
+        if (!_canWalk)
+            _directionArray = staticDirections;
+        else
+        {
+            _directionArray = runDirections;
+            lastDirection = DirectionToIndex(_direction, 8);
+        }
+
+        animator.Play(_directionArray[lastDirection]);
+    }
+
   
     public static int DirectionToIndex(Vector2 _dir, int _sliceCount){
       

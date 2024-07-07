@@ -11,7 +11,8 @@ public class EntityData : ScriptableObject
 
     public float Speed;
     public int Damage;
-    public float Range;
+    public float AttackRange;
+    public float SpotRange;
 
     public GameObject DeathParticle;
 

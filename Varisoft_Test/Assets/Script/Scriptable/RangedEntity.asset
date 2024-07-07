@@ -17,5 +17,7 @@ MonoBehaviour:
   EntityColor: {r: 0.3137255, g: 0.6313726, b: 0.70980394, a: 1}
   Speed: 3
   Damage: 1
-  Range: 5
+  AttackRange: 5
+  SpotRange: 5
   DeathParticle: {fileID: 0}
+  Projectile: {fileID: 8518309084865981462, guid: 1254479095ca9934bba4167099853152, type: 3}

@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
     public void DoDamage(int _damage)
     {
         HP -= _damage;
-        StartCoroutine(FadingColor());
+        //StartCoroutine(FadingColor());
         OnHpChange?.Invoke();
     }
 

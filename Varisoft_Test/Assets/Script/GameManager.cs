@@ -16,6 +16,8 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private Player player;
     [SerializeField] private Health health;
 
+    public Player Player => player;
+    
     public override void Awake()
     {
         framerateOptimizer.Init();
@@ -42,6 +44,11 @@ public class GameManager : Singleton<GameManager>
     private void InitializePlayer()
     {
         player.Init();
+
+        int _randomPosition = Random.Range(0, worldGen.SpawnablePlayerTile.Count);
+        Vector3 _position = worldGen.TileMap.CellToWorld(worldGen.SpawnablePlayerTile[_randomPosition]);
+
+        player.transform.position = _position;
     }
 
     public void GameOver()

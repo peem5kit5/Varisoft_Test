@@ -212,8 +212,7 @@ GameObject:
   - component: {fileID: 309164493}
   - component: {fileID: 309164495}
   - component: {fileID: 309164494}
-  - component: {fileID: 309164496}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ObstacleTileMap
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -322,42 +321,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!19719996 &309164496
-TilemapCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309164492}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_MaximumTileChangeCount: 100
-  m_ExtrusionFactor: 0
-  m_UseDelaunayMesh: 0
 --- !u!1 &494010290
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +410,125 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494010290}
   m_CullTransparentMesh: 1
+--- !u!1 &495175146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 495175148}
+  - component: {fileID: 495175147}
+  m_Layer: 0
+  m_Name: PathFinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &495175147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495175146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAA4Iey3rgbLYQIAACEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty4jAQ/BVK5yVlCATY264hJAcSKmQrF1+ENcYqZMmlR3ik+PcdyTZ2yAnR3ZrpechfhEtTQmqVXmrOVooB+d0jz0YVYDVPPUh+9VrVExzpTskNP0Mj/uDM5l5Eg+aNWq4QH/hrTZw/cie8eDy6m9yPHzznJM+ULhZsB7Ey1iCbUWEAKa2sDyIR+uqRI/70R2PET3gaTiI8nfE0i3oXPKYgLehWGjXCca2rZE6mghYlMG+9VU+auJNxkEksqlZ4k6kSgpvaCrGnMlQc09I4rAcFjFOsMOT3+hz4Lrc+e/fya5YZsLU3TU9zrrFRVVTyV1XdK6jZV74+qXA+z8MoWKpirn7Q/UGgM62KpybtIPIpbM7T/Rs9pdTYTlu78Py7bycPVOzpVsBHDvJFLbVykiFptfNXnYHhvP17rSzOId23eGX1BnTlz+E0M/Q1XELxx1jwYuupu1EFbIQK7Z55MWgczDMaDoth6hCIehf/DLzTXXeDauKRa2ORqquU3t5WOe2lZBF65qtxNlZaQoBr0yVIKuxpjWHs7QRvuE7aG+aR+idTJ6+55iXcXAlwq4+iG2qtDtdhmVwdVmDyV2cFl9Ca9sQL9ilWUlYL1u1Jc23jdEbTzrWd4+z7apHpaDilg+2E0ftoO8ugT9HSMJpms/sRy8YpI2H3uMQ6qVhXRuv24NRkG1zinn37pIRXo+lhyc+F6nScy0xtUg0gX6sAV9+gMQe+SbZgHPuzAWu5DOMmXwkRKt0DS66BklDo4mg1TdooCSn5p7IeSUgcPhkJ8fB1ldcaPjkcfPIm2IVc/gNQSwMEFAAACAgAADgh7Ln5dPJtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKFiZFFomGSeUqisUGSZVqqbqKhgYGRgUWapbFJSpppcopSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAADgh7LeuBsthAgAAIQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAADgh7Ln5dPJtAAAAeAAAAAkAJAAAAAAAAAAAAAAArgIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABmAwAAAAA=
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 0
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!4 &495175148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495175146}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7908325, y: 17.448502, z: 0.7725107}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +591,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -599,6 +681,18 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3339481645408498932, guid: 5e2a82902b6ea4c0b9b652322ffadcff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339481645408498932, guid: 5e2a82902b6ea4c0b9b652322ffadcff, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339481645408498932, guid: 5e2a82902b6ea4c0b9b652322ffadcff, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339481645408498932, guid: 5e2a82902b6ea4c0b9b652322ffadcff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -669,6 +763,10 @@ PrefabInstance:
     - target: {fileID: 5356586626150839398, guid: 5e2a82902b6ea4c0b9b652322ffadcff, type: 3}
       propertyPath: m_ContactCaptureLayers.m_Bits
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738581480518565943, guid: 5e2a82902b6ea4c0b9b652322ffadcff, type: 3}
+      propertyPath: Speed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9061492401305138552, guid: 5e2a82902b6ea4c0b9b652322ffadcff, type: 3}
       propertyPath: m_Camera
@@ -771,7 +869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 901bf68cb8db541438066cf931e976c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetFrameRate: 144
+  TargetFrameRate: 300
 --- !u!114 &874080231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,16 +886,17 @@ MonoBehaviour:
   obstacleTileMap: {fileID: 309164495}
   ruleTile: {fileID: 11400000, guid: df9196ebae292f74a8d201b85594a650, type: 2}
   obstacleRuleTiles:
-  - {fileID: 11400000, guid: 7b115571ae348c9409a2d1bb9fc751b4, type: 2}
-  - {fileID: 11400000, guid: 7e7b06f0ce058594c81a81b603edf19a, type: 2}
-  - {fileID: 11400000, guid: 3877c88a61b82ef4791655b57bb77f3c, type: 2}
-  mapSizeX: 30
-  mapSizeY: 30
+  - {fileID: 11400000, guid: 6587225577c3af24880f89907e1ebb2c, type: 2}
+  - {fileID: 11400000, guid: 1b4f17fd3ade38144850c8468a19b036, type: 2}
+  - {fileID: 11400000, guid: 277764d65485088408dce8bd4f7009c8, type: 2}
+  - {fileID: 11400000, guid: 0457b448a63b89f4990811142962ff8a, type: 2}
+  mapSizeX: 100
+  mapSizeY: 100
   tileSpacingX: 0.5
   tileSpacingY: 0.5
   obstacleDensity: 0.05
   baseEntity: {fileID: 1835473011380727106, guid: cbe3531c6d2084c45afe28ac8c5e9614, type: 3}
-  maxEnemiesCount: 3
+  maxEnemiesCount: 10
   allEntitiesData:
   - {fileID: 11400000, guid: f5777949a1a8e0245823f56dcacb146c, type: 2}
   - {fileID: 11400000, guid: 3d220daefbe8564448f9e9e1f6800956, type: 2}
@@ -1105,7 +1204,7 @@ GameObject:
   - component: {fileID: 1808797264}
   - component: {fileID: 1808797266}
   - component: {fileID: 1808797265}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1224,3 +1323,4 @@ SceneRoots:
   - {fileID: 539986497}
   - {fileID: 1606035343}
   - {fileID: 874080228}
+  - {fileID: 495175148}

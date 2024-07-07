@@ -139,6 +139,11 @@ PlayerSettings:
   bundleVersion: 1.0.2
   preloadedAssets:
   - {fileID: 3339481645408498929, guid: 5e2a82902b6ea4c0b9b652322ffadcff, type: 3}
+  - {fileID: 4838469827266864856, guid: f73f5e32959cb9b4d95310716f768023, type: 3}
+  - {fileID: 7538511671800706808, guid: 6e205200da3d4c24e930b0f6544d34fa, type: 3}
+  - {fileID: 2318874357894138260, guid: 0d8e7f3fa9268ed40b2891f4edc73cc6, type: 3}
+  - {fileID: 4119736676359424531, guid: 779cc8c96a360c143923114977790c44, type: 3}
+  - {fileID: 1835473011380727106, guid: cbe3531c6d2084c45afe28ac8c5e9614, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -814,4 +819,4 @@ PlayerSettings:
   hmiLoadingImage: {fileID: 0}
   platformRequiresReadableAssets: 0
   virtualTexturingSupportEnabled: 0
-  insecureHttpOption: 0
+  insecureHttpOption: 2
