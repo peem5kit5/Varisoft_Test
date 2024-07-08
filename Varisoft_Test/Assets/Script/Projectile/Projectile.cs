@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
         if (_collision.CompareTag(TargetTag))
         {
             var _health = _collision.GetComponent<Health>();
-            _health.DoDamage(Damage);
+            _health.OnHpChange?.Invoke(Damage);
 
             Destroy(gameObject);
         }

@@ -17,7 +17,7 @@ public class RangedEntity : EntityBase
         magicBullet = _entityData.Projectile;
     }
 
-    public override void Behaviour()
+    public override void AdditionBehaviour()
     {
         Shoot();
     }

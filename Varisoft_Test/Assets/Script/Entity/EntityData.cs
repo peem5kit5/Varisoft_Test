@@ -14,6 +14,7 @@ public class EntityData : ScriptableObject
     public float AttackRange;
     public float SpotRange;
 
+    public RuntimeAnimatorController AnimatorController;
     public GameObject DeathParticle;
 
     [Header("If it ranged or have Projecttile.")]

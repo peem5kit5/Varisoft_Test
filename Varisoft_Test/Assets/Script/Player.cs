@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] private InputActionReference inputMagicShoot;
 
     [Header("Status")]
+    public int MaxHP = 10;
     public float Speed;
     public float ShootMaxCooldown;
     public bool IsShooted;
@@ -29,21 +30,11 @@ public class Player : MonoBehaviour
     private Vector2 movementPosition;
     private Vector2 newPosition;
 
-#if UNITY_EDITOR
-    private void OnValidate()
-    {
-        if (!rb)
-            rb = GetComponent<Rigidbody2D>();
-
-        if (!health)
-            health = GetComponent<Health>();
-    }
-#endif
-
     public void Init()
     {
         inputMagicShoot.action.performed += MagicShoot;
 
+        health.Init(MaxHP);
         health.OnHpChange += OnDeath;
     }
 
@@ -97,7 +88,7 @@ public class Player : MonoBehaviour
         IsShooted = false;
     }
 
-    private void OnDeath()
+    private void OnDeath(int _hp)
     {
         if (health.HP <= 0)
             GameManager.Instance.GameOver();

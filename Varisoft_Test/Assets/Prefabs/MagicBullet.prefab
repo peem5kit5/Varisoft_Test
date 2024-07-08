@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetTag: Enemy
-  Damage: 1
+  Damage: 5
 --- !u!50 &5536567239990482773
 Rigidbody2D:
   serializedVersion: 4

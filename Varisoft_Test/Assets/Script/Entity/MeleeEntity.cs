@@ -6,7 +6,7 @@ public class MeleeEntity : EntityBase
 {
     public bool IsAttack;
 
-    public override void Behaviour()
+    public override void AdditionBehaviour()
     {
         Melee();
     }
@@ -18,7 +18,7 @@ public class MeleeEntity : EntityBase
             if(State == EntityState.Attack)
             {
                 var _hp = Player.GetComponent<Health>();
-                _hp.DoDamage(Damage);
+                _hp.OnHpChange?.Invoke(Damage);
 
                 IsAttack = true;
                 StartCoroutine(Cooldown());

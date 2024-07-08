@@ -28,6 +28,7 @@ public class WorldGenerator : MonoBehaviour
 
     public List<Vector3Int> SpawnablePlayerTile => passableTile;
     public Tilemap TileMap => tileMap;
+    public int MaxEnemiesCount => maxEnemiesCount;
 
     public void Init()
     {

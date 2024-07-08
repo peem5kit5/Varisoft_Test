@@ -39,10 +39,11 @@ public abstract class EntityBase : MonoBehaviour
     public CharacterSprite CharacterSprite => characterSprite;
     public AIPath Agent => aiPath;
     public Player Player => player;
+    public Health Health => health;
 
     public virtual void Init(EntityData _entityData) 
     {
-        OnBehaviour += Behaviour;
+        OnBehaviour += AdditionBehaviour;
         OnBehaviour += CheckingPlayer;
         OnBehaviour += Movement;
 
@@ -62,9 +63,13 @@ public abstract class EntityBase : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         characterSprite = GetComponentInChildren<CharacterSprite>();
 
+        anim.runtimeAnimatorController = _entityData.AnimatorController;
+
         player = GameManager.Instance.Player;
 
-        health.OnHpChange += DeathParticleDeploy;
+        health.DeathParticle = deathParticle;
+        health.Init(_entityData.MaxHP);
+        health.OnHpChange += OnDeath;
 
         spriteRenderer.color = _entityData.EntityColor;
         aiPath.maxSpeed = Speed;
@@ -91,7 +96,7 @@ public abstract class EntityBase : MonoBehaviour
         }
     }
 
-    private void Movement()
+    public virtual void Movement()
     {
         if (IsSaw)
         {
@@ -115,16 +120,19 @@ public abstract class EntityBase : MonoBehaviour
     }
 
 
-    public abstract void Behaviour();
+    public abstract void AdditionBehaviour();
 
-    private void Update() => OnBehaviour?.Invoke();
-
-    private void DeathParticleDeploy()
+    private void Update()
     {
-        if (health.HP <= 0 && deathParticle != null)
-        {
-            var _gameObject = Instantiate(deathParticle, transform.position, Quaternion.identity);
-            Destroy(_gameObject, 2);
-        }
+        if (GameManager.Instance.IsGamePlay)
+            OnBehaviour?.Invoke();
+        else
+            Destroy(this);
+    } 
+
+    private void OnDeath(int _)
+    {
+        if (health.HP <= 0)
+            GameManager.Instance.EntityDeath();
     }
 }

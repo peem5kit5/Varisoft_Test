@@ -6,18 +6,18 @@ using System;
 public class Health : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject deathParticle;
+    public GameObject DeathParticle;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     [Header("Status")]
     public int HP;
     public int MaxHP;
 
-    public Action OnHpChange;
+    public Action<int> OnHpChange;
 
     public void Init(int _maxHP)
     {
-        OnHpChange += Death;
+        OnHpChange += DoDamage;
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
@@ -28,17 +28,20 @@ public class Health : MonoBehaviour
     public void DoDamage(int _damage)
     {
         HP -= _damage;
-        //StartCoroutine(FadingColor());
-        OnHpChange?.Invoke();
+        StartCoroutine(FadingColor());
+
+        if(HP <= 0)
+            Death();
+
+        //OnHpChange?.Invoke();
     }
 
-    private void Death()
+    public void Death()
     {
-        if(HP <= 0)
-        {
-            Instantiate(deathParticle, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
+        GameObject _gameObject = Instantiate(GameManager.Instance.
+            DeathParticle, transform.position, Quaternion.identity);
+
+        Destroy(gameObject);
     }
 
     private IEnumerator FadingColor()

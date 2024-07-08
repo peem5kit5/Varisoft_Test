@@ -6,22 +6,27 @@ using UnityEngine;
 [RequireComponent(typeof (FramerateOptimizer))]
 public class GameManager : Singleton<GameManager>
 {
-    [Header("References")]
-    [SerializeField] private GameObject entityBaseObject;
-    [SerializeField] private GameObject tileBaseObject;
-
     [Header("Dependencies")]
     [SerializeField] private WorldGenerator worldGen;
     [SerializeField] private FramerateOptimizer framerateOptimizer;
+    [SerializeField] private UI_Controller uiController;
     [SerializeField] private Player player;
     [SerializeField] private Health health;
 
+    public bool IsGamePlay;
+
+    [Header("Overalll References")]
+    public GameObject DeathParticle;
     public Player Player => player;
+
+    public int MaxEnemies => worldGen.MaxEnemiesCount;
     
     public override void Awake()
     {
-        framerateOptimizer.Init();
+        IsGamePlay = true;
 
+        framerateOptimizer.Init();
+        
         worldGen = GetComponent<WorldGenerator>();
         worldGen.Init();
 
@@ -49,10 +54,15 @@ public class GameManager : Singleton<GameManager>
         Vector3 _position = worldGen.TileMap.CellToWorld(worldGen.SpawnablePlayerTile[_randomPosition]);
 
         player.transform.position = _position;
+
+        uiController.Init(player);
     }
 
     public void GameOver()
     {
-
+        IsGamePlay = false;
+        uiController.Retry();
     }
+
+    public void EntityDeath() => uiController.CheckRemaining();
 }
