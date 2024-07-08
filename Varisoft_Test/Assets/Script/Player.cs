@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
             float _angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
             shootingPoint.rotation = Quaternion.Euler(new Vector3(0, 0, _angle));
 
-            Vector3 _shootingPointOffset = moveDirection.normalized * 3;
+            Vector3 _shootingPointOffset = moveDirection.normalized * 1.5f;
             shootingPoint.position = rb.transform.position + _shootingPointOffset;
         }
     }
